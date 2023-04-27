@@ -5,7 +5,6 @@ from PIL import Image
 import PIL.ImageOps
 import torchvision.transforms as transforms
 import torch.nn.functional as F
-import torch
 
 def videoBarcodeSimilarities(image1_path: str, image2_path: str):
     model = SiameseNetwork()
