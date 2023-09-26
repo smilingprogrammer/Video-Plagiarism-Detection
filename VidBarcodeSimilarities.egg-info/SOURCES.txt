@@ -1,0 +1,8 @@
+setup.py
+VidBarcodeSimilarities/__init__.py
+VidBarcodeSimilarities/model.py
+VidBarcodeSimilarities/videobarcodesimilarities.py
+VidBarcodeSimilarities.egg-info/PKG-INFO
+VidBarcodeSimilarities.egg-info/SOURCES.txt
+VidBarcodeSimilarities.egg-info/dependency_links.txt
+VidBarcodeSimilarities.egg-info/top_level.txt

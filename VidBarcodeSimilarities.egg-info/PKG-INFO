@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: VidBarcodeSimilarities
+Version: 0.0.4
+Summary: A library to compare similarities between barcode images
+Author: Abdulsobur
+Author-email: Abdulsoburoyewale@gmail.com
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9

@@ -1,18 +1,20 @@
 
 import torch
-from model import SiameseNetwork
+from .model import SiameseNetwork
 from PIL import Image
 import PIL.ImageOps
+import pkg_resources
 import torchvision.transforms as transforms
 import torch.nn.functional as F
 
 def videoBarcodeSimilarities(image1_path: str, image2_path: str):
     model = SiameseNetwork()
-    PATH = "./dropdart.h5"
+    weight_path = pkg_resources.resource_filename(__name__, 'barimgsim.pt')
+    # PATH = "barimgsim.pt"
     # weights = torch.hub.load_state_dict_from_url(
     #     "https://github.com/smilingprogrammer/RealTimeNudityDetectionAlgorithm/blob/main/barimgsim.pt", progress=True
     # )
-    model.load_state_dict(torch.load(PATH))
+    model.load_state_dict(torch.load(weight_path))
     model.eval()
 
     image1 = Image.open(image1_path)

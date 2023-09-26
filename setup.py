@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="VideoBarcodeSimilaritiesDetection",
-    version="1.0",
+    name="VidBarcodeSimilarities",
+    version="0.0.4",
     description="A library to compare similarities between barcode images",
     author="Abdulsobur",
     author_email="Abdulsoburoyewale@gmail.com",
