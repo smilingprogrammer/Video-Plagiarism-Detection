@@ -82,11 +82,11 @@ This project is built for the detection of plagiarized videos mostly on online p
 
 The following contains list of major frameworks/libraries i used to bootstrap this project. Here are some
 
-* [![Python][Next.js]][Next-url]
-* [![Pytorch][React.js]][React-url]
-* [![Numpy][Vue.js]][Vue-url]
-* [![Open-CV][Angular.io]][Angular-url]
-* [![PyPi][Svelte.dev]][Svelte-url]
+* [![Python][python]][python-url]
+* [![Pytorch][pytorch]][pytorch-url]
+* [![Numpy][numpy]][numpy-url]
+* [![Open-CV][open]][open-url]
+* [![PyPi][pypi]][pypi-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -158,11 +158,21 @@ Don't forget to give the project a star! Thanks again!
 
 ## Contact
 
-Abdulsobur Oyewale - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Abdulsobur Oyewale - [@sprogrammerx](https://twitter.com/sprogrammerx) - Abdulsoburoyewale@gmail.com
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[python]: https://img.shields.io/badge/Python-000000?style=for-the-badge&logo=python&logoColor=white
+[python-url]: https://www.python.org/
+[pytorch]: https://img.shields.io/badge/Pytorch-20232A?style=for-the-badge&logo=pytorch&logoColor=61DAFB
+[pytorch-url]: https://pytorch.org/
+[numpy]: https://img.shields.io/badge/Numpy-35495E?style=for-the-badge&logo=numpy&logoColor=4FC08D
+[numpy-url]: https://numpy.org/
+[open]: https://img.shields.io/badge/OpenCv-DD0031?style=for-the-badge&logo=opencv&logoColor=white
+[open-url]: https://opencv.org/
+[pypi]: https://img.shields.io/badge/PyPi-4A4A55?style=for-the-badge&logo=pypi&logoColor=FF3E00
+[pypi-url]: https://pypi.org/
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
 [contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
@@ -176,20 +186,3 @@ Abdulsobur Oyewale - [@your_twitter](https://twitter.com/your_username) - email@
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: images/screenshot.png
-[Next.js]: https://img.shields.io/badge/Python-000000?style=for-the-badge&logo=python&logoColor=white
-[Next-url]: https://nextjs.org/
-[React.js]: https://img.shields.io/badge/Pytorch-20232A?style=for-the-badge&logo=pytorch&logoColor=61DAFB
-[React-url]: https://reactjs.org/
-[Vue.js]: https://img.shields.io/badge/Numpy-35495E?style=for-the-badge&logo=numpy&logoColor=4FC08D
-[Vue-url]: https://vuejs.org/
-[Angular.io]: https://img.shields.io/badge/OpenCv-DD0031?style=for-the-badge&logo=opencv&logoColor=white
-[Angular-url]: https://angular.io/
-[Svelte.dev]: https://img.shields.io/badge/PyPi-4A4A55?style=for-the-badge&logo=pypi&logoColor=FF3E00
-[Svelte-url]: https://svelte.dev/
-[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
-[Laravel-url]: https://laravel.com
-[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-[Bootstrap-url]: https://getbootstrap.com
-[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 
-
