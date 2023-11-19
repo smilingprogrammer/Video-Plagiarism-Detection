@@ -1,49 +1,37 @@
+import sys
+sys.path.append('/content/ChangeFormer/models/')
+from models.ChangeFormer import EncoderTransformer_v3, DecoderTransformer_v3
+from functools import partial
 
-import torch
-import torch.nn as nn
-
+#create the Siamese Neural Network
 class SiameseNetwork(nn.Module):
-
-    def __init__(self):
+    def __init__(self, input_nc=3, output_nc=2, decoder_softmax=False, embed_dim=256):
         super(SiameseNetwork, self).__init__()
+        #Transformer Encoder
+        self.embed_dims = [64, 128, 320, 512]
+        self.depths     = [3, 3, 4, 3]
+        self.embedding_dim = embed_dim
+        self.drop_rate = 0.1
+        self.attn_drop = 0.1
+        self.drop_path_rate = 0.1
 
-        # Setting up the Sequential of CNN Layers
-        self.cnn1 = nn.Sequential(
-            nn.Conv2d(3, 96, kernel_size=11,stride=4),
-            nn.ReLU(inplace=True),
-            nn.MaxPool2d(3, stride=2),
-            
-            nn.Conv2d(96, 256, kernel_size=5, stride=1),
-            nn.ReLU(inplace=True),
-            nn.MaxPool2d(2, stride=2),
+        self.Tenc_x2    = EncoderTransformer_v3(img_size=256, patch_size = 4, in_chans=input_nc, num_classes=output_nc, embed_dims=self.embed_dims,
+                 num_heads = [1, 2, 5, 8], mlp_ratios=[4, 4, 4, 4], qkv_bias=True, qk_scale=None, drop_rate=self.drop_rate,
+                 attn_drop_rate = self.attn_drop, drop_path_rate=self.drop_path_rate, norm_layer=partial(nn.LayerNorm, eps=1e-6),
+                 depths=self.depths, sr_ratios=[8, 4, 2, 1])
 
-            nn.Conv2d(256, 384, kernel_size=3,stride=1),
-            nn.ReLU(inplace=True)
-        )
+        #Transformer Decoder
+        self.TDec_x2   = DecoderTransformer_v3(input_transform='multiple_select', in_index=[0, 1, 2, 3], align_corners=False,
+                    in_channels = self.embed_dims, embedding_dim= self.embedding_dim, output_nc=output_nc,
+                    decoder_softmax = decoder_softmax, feature_strides=[2, 4, 8, 16])
 
-        # Setting up the Fully Connected Layers
-        self.fc1 = nn.Sequential(
-            nn.Linear(384, 1024),
-            nn.ReLU(inplace=True),
-            
-            nn.Linear(1024, 256),
-            nn.ReLU(inplace=True),
-            
-            nn.Linear(256,2)
-        )
-        
-    def forward_once(self, x):
-        # This function will be called for both images
-        # It's output is used to determine the similiarity
-        output = self.cnn1(x)
-        output = output.view(output.size()[0], -1)
-        output = self.fc1(output)
-        return output
+    def forward(self, x1, x2):
 
-    def forward(self, input1, input2):
-        # In this function we pass in both images and obtain both vectors
-        # which are returned
-        output1 = self.forward_once(input1)
-        output2 = self.forward_once(input2)
+        print(x1.shape)
+        print(x2.shape)
 
-        return output1, output2
+        [fx1, fx2] = [self.Tenc_x2(x1), self.Tenc_x2(x2)]
+
+        cp = self.TDec_x2(fx1, fx2)
+
+        return cp
